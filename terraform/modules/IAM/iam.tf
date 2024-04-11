@@ -19,7 +19,7 @@ resource "aws_iam_user_group_membership" "adding_to_developer" {
 }
 
 resource "aws_iam_policy" "policy" {
-  name        = "test_policy"
+  name        = var.policy_name
   path        = "/"
   description = "My test policy"
   policy = templatefile("${path.root}/json_policy/s3_policy.json" , {bucket_arn = var.bucket_arn} )

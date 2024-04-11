@@ -17,3 +17,8 @@ variable "bucket_arn" {
     description = "Enter Bucket ARN"
     type = string
 }
+
+variable "policy_name" {
+    description = "Enter IAM Policy Name"
+    type = string
+}

@@ -48,8 +48,9 @@ module "create_iam_resources" {
   # depends_on = [ module.create_s3_bucket ]
   source = "./modules/IAM"
   owner_name = local.owner_name
-  iam_user_name = "suraj"
-  iam_group_name = "DevOps"
+  iam_user_name = var.iam_user_name #"suraj"
+  iam_group_name = var.iam_group_name #"DevOps"
+  policy_name = var.policy_name
   bucket_arn = local.bucket_arn #"arn:aws:s3:::${var.bucket_name}"
 }
 

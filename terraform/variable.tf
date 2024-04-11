@@ -18,3 +18,18 @@ variable "bucket_name" {
   description = "Enter Bucket Name"
   type = string
 }
+
+variable "iam_user_name" {
+  description = "Enter IAM User Name"
+  type = string
+}
+
+variable "iam_group_name" {
+  description = "Enter IAM Group Name"
+  type = string
+}
+
+variable "policy_name" {
+  description = "Enter IAM policy Name"
+  type = string
+}
