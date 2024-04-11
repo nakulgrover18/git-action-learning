@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install Terraform
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.8.0/terraform_1.8.0_linux_amd64.zip
+      - unzip terraform.zip -d /tmp
+      - chmod +x /tmp/terraform
+      - mv /tmp/terraform /usr/local/bin/terraform
+      - terraform --version
+
+  build:
+    commands:
+      # Change directory to Terraform folder
+      - cd $CODEBUILD_SRC_DIR/terraform
+
+      # Initialize Terraform
+      - terraform init -reconfigure -backend-config=configuration/$ENV.hcl
+
+      # Apply Terraform changes
+      - terraform apply -var-file=configuration/$ENV.tfvars -auto-approve
